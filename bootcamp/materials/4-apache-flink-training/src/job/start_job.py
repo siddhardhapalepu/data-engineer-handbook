@@ -124,7 +124,7 @@ def log_processing():
     # Set up the table environment
     settings = EnvironmentSettings.new_instance().in_streaming_mode().build()
     t_env = StreamTableEnvironment.create(env, environment_settings=settings)
-    t_env.create_temporary_function("get_location", get_location)
+    t_env.create_temporary_function("get_location", get_location) # this is similar to registering a UDF
     try:
         # Create Kafka table
         source_table = create_events_source_kafka(t_env)
